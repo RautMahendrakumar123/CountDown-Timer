@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from './component/Counter';
+import { useState } from 'react';
 
 function App() {
+  const [number,setNumber]=useState(0);
+  const [component,setComponent]=useState(false)
+  console.log(number)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <input type='number' onChange={(e)=>{setNumber(e.target.value)}}/>
+      </div>
+      <div>
+        <button onClick={()=>{
+           setComponent(!component)
+           
+        }}>start</button>
+      </div>
+      {
+        component && <Counter seconds={number} />
+      }
+      
     </div>
   );
 }
