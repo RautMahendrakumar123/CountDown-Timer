@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const Counter = ({seconds,setComponent}) => {
+const Counter = ({seconds}) => {
     const [count,setCount]=useState(Math.floor(seconds));
     if(count<0){
         setCount(0)
